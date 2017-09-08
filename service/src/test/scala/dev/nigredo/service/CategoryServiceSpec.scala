@@ -19,21 +19,21 @@ class CategoryServiceSpec extends Specification {
 
     "create category if it is valid" in {
       val validator: Validator = _ => Valid(category)
-      create(category, validator, identity) must beRight(category)
+      create(category)(validator)(identity) must beRight(category)
     }
     "not create category if it is not valid" in {
       val validator: Validator = _ => Invalid(List("error"))
-      create(category, validator, identity) must beLeft(ValidationError(List("error")))
+      create(category)(validator)(identity) must beLeft(ValidationError(List("error")))
     }
     "update category if it is valid" in {
       val validator: Validator = _ => Valid(category2)
       val findOne: FindOneById = _ => Option(category)
-      update(category2, validator, findOne, identity) must beRight(category2)
+      update(category2)(validator)(findOne)(identity) must beRight(category2)
     }
     "not update category if it is not valid" in {
       val validator: Validator = _ => Invalid(List("error"))
       val findOne: FindOneById = _ => Option(category)
-      update(category2, validator, findOne, identity) must beLeft(ValidationError(List("error")))
+      update(category2)(validator)(findOne)(identity) must beLeft(ValidationError(List("error")))
     }
   }
 }
