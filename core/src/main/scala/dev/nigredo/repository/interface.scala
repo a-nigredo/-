@@ -1,8 +1,8 @@
-package dev.nigredo
+package dev.nigredo.repository
 
 import dev.nigredo.domain.models.Storable
 
-package object repository {
+object interface {
   type FindOneById[A] = Long => Option[A]
   type FindOne[Filter, B] = Filter => Option[B]
   type FindAll[Filter, B] = Filter => List[B]

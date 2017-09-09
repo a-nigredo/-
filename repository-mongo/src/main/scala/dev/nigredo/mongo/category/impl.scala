@@ -1,14 +1,14 @@
-package dev.nigredo.mongo
+package dev.nigredo.mongo.category
 
 import com.mongodb.client.model.Filters
 import dev.nigredo.domain.models.Category
-import dev.nigredo.repository.category._
+import dev.nigredo.repository.category.interface._
 import org.bson.conversions.Bson
 import org.mongodb.scala.MongoCollection
 
 import scala.collection.mutable.ListBuffer
 
-object category {
+object impl {
 
   type Collection = MongoCollection[Category]
 

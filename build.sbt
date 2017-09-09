@@ -6,7 +6,7 @@ lazy val commonSettings = Seq(
   libraryDependencies += "org.typelevel" %% "cats-core" % "1.0.0-MF",
   libraryDependencies += "org.mongodb.scala" %% "mongo-scala-driver" % "2.1.0",
   libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3",
-  scalacOptions in Test ++= Seq("-Yrangepos"),
+  scalacOptions in Test ++= Seq("-Yrangepos", "-Ypartial-unification"),
   crossPaths := false
 )
 
